@@ -1,0 +1,58 @@
+        # 計算數據子載波的平均，分成上、下兩部分
+        m1 = 0
+        a1 = amplitudes1[6:32]      # len = 26
+        # print('上半部子載波', a1)
+        for a in a1:
+            n = float(a)
+            m1 += n
+        mean1 = m1 / len(a1)
+        # print('上半部的平均', format(mean1, '.3f'))
+
+        m2 = 0
+        a2 = amplitudes1[33:59]     # len = 26
+        # print('下半部子載波', a2)
+        for b in a2:
+            n = float(b)
+            m2 += n
+        mean2 = m2 / len(a2)
+        # print('下半部的平均', format(mean2, '.3f'))
+
+        # mean = format((mean1 + mean2) / 2, '.3f')
+        # print('總平均', format(mean, '.3f'))
+        # print(mean, file=open(FILE_NAME0, 'a'))
+
+--------------------------------------------------------------------
+
+        # print("-------------------")
+        # 把數據子載波取平均值並顯示出來
+        # df_list = pd.DataFrame(amplitudes1[6:59])
+        # df_list_transpose = df_list.transpose()
+        # print(df_list_transpose)
+        # df_ave = pd.DataFrame(amplitudes1)
+        # print(df_list_transpose)
+        # print("-------------------")
+
+        # 可以將 csi 的多列 (list) 振幅寫入 csv ，但是需要刪除檔案之後再執行 (因為重複執行的話檔案不會被複寫)
+        # with open('no_people_amp-0.csv', 'a', newline='') as file:
+            # writer = csv.writer(file)
+            # writer.writerow(amplitudes1)
+            # writer.writerow(mean)
+
+        # print("-------------------")
+        # 可以將 csi 的多列 (list) 振幅寫入 csv ，但是需要刪除檔案之後再執行 (因為重複執行的話檔案不會被複寫)
+        # print("csi_amplitude#{}:".format(j1), amplitudes1, file=open('no_people_amp-0.csv', 'a'))
+
+        # https://ithelp.ithome.com.tw/questions/10195696
+        # print("-------------------")
+
+        # loop1 += 1
+
+    # print("-------------------")
+    # 可以將 csi 的單列 (list) 振幅寫入 csv
+    # with open('no_people_amp-0.csv', 'w', newline='') as file:
+        # writer = csv.writer(file, delimiter=',')
+        # writer.writerow(amplitudes1)
+        # (NO USE) 會將 csi 的單列 (list) 振幅逐字分開寫入 csv
+        # for j1 in amplitudes1:
+            # writer.writerow(amplitudes1[j1])
+    # print("-------------------")
